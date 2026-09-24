@@ -1,0 +1,350 @@
+{
+  "partition": "dev",
+  "workbook_sha256": "92b6959c218151d0cc85a5311eceb720fc6475a30bceb7f895dd2438368c36b0",
+  "counts": {
+    "vehicles": 15,
+    "batteries": 13,
+    "sources": 37,
+    "fitment_links": 15
+  },
+  "excluded_pending_templates": 3,
+  "vehicle_battery_specs_duplicated": false,
+  "subject_splits_performed": 0,
+  "confidence_tiers_assigned": 0,
+  "source_id_999_and_canonical_placeholders_resolved": false,
+  "loader_findings": [
+    {
+      "sheet": "01_vehicles",
+      "row": 3,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 4,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 5,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 6,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 7,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 8,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 9,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 10,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 11,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 12,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 13,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 14,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 15,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 16,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "01_vehicles",
+      "row": 17,
+      "column": "data_source_id",
+      "rule": "SYNTHETIC_SOURCE",
+      "value": "999",
+      "message": "Source 999 is restricted to a separate dev partition.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 12,
+      "column": "battery_entry_id",
+      "rule": "PENDING_TEMPLATE",
+      "value": "B-PENDING",
+      "message": "Unlinked template excluded from candidate records.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 14,
+      "column": "battery_entry_id",
+      "rule": "PENDING_TEMPLATE",
+      "value": "B-PENDING",
+      "message": "Unlinked template excluded from candidate records.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 15,
+      "column": "battery_entry_id",
+      "rule": "PENDING_TEMPLATE",
+      "value": "B-PENDING",
+      "message": "Unlinked template excluded from candidate records.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 3,
+      "column": "linked_vcdb_vehicle_ids (Sheet 1)",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910001;910011",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 4,
+      "column": "linked_vcdb_vehicle_ids (Sheet 1)",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910021",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 5,
+      "column": "linked_vcdb_vehicle_ids (Sheet 1)",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910022",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 6,
+      "column": "linked_vcdb_vehicle_ids (Sheet 1)",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910023;910024",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 7,
+      "column": "linked_vcdb_vehicle_ids (Sheet 1)",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910025",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 8,
+      "column": "linked_vcdb_vehicle_ids (Sheet 1)",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910026",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 9,
+      "column": "linked_vcdb_vehicle_ids (Sheet 1)",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910027",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 10,
+      "column": "linked_vcdb_vehicle_ids (Sheet 1)",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910027",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 11,
+      "column": "linked_vcdb_vehicle_ids (Sheet 1)",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910002",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 13,
+      "column": "linked_vcdb_vehicle_ids (Sheet 1)",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910004",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 16,
+      "column": "linked_vcdb_vehicle_ids (Sheet 1)",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910004",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 17,
+      "column": "linked_vcdb_vehicle_ids (Sheet 1)",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910004",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "02_battery_specifications",
+      "row": 18,
+      "column": "linked_vcdb_vehicle_ids (Sheet 1)",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910004",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "03_real_fitments",
+      "row": 2,
+      "column": "local_sample_vehicle_ref",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910002",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "03_real_fitments",
+      "row": 3,
+      "column": "local_sample_vehicle_ref",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910004",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "03_real_fitments",
+      "row": 4,
+      "column": "local_sample_vehicle_ref",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910004",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "03_real_fitments",
+      "row": 5,
+      "column": "local_sample_vehicle_ref",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910025",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "03_real_fitments",
+      "row": 6,
+      "column": "local_sample_vehicle_ref",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910022",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    },
+    {
+      "sheet": "03_real_fitments",
+      "row": 7,
+      "column": "local_sample_vehicle_ref",
+      "rule": "SYNTHETIC_VEHICLE_LINK",
+      "value": "910002",
+      "message": "Record depends on a source-999 vehicle; retained in dev partition only.",
+      "severity": "INFO"
+    }
+  ]
+}

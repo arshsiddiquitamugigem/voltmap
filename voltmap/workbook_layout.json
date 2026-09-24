@@ -1,0 +1,221 @@
+{
+  "version": "reconciled-v4",
+  "sheets": {
+    "01_vehicles": {
+      "header_row": 2,
+      "headers": [
+        "vcdb_base_vehicle_id",
+        "vcdb_vehicle_id",
+        "year",
+        "make",
+        "model",
+        "submodel",
+        "region",
+        "vcdb_engine_config_id",
+        "engine_liters",
+        "engine_cylinders",
+        "engine_code",
+        "aspiration",
+        "drive_type",
+        "model_year_range",
+        "generation",
+        "powertrain_type",
+        "electrical_architecture",
+        "system_voltage_v",
+        "has_hv_traction_system",
+        "battery_registration_required",
+        "primary_batt_group_bci",
+        "primary_batt_chemistry",
+        "primary_batt_terminal",
+        "primary_batt_nominal_v",
+        "primary_batt_cca_a",
+        "primary_batt_reserve_min",
+        "aux_12v_battery",
+        "hv_batt_chemistry",
+        "hv_batt_nominal_v",
+        "hv_batt_capacity_kwh",
+        "alternator_rated_a",
+        "alternator_output_v",
+        "voltage_regulator_type",
+        "starter_voltage_v",
+        "main_fuse_link_rating_a",
+        "charging_system_notes",
+        "electrical_compat_notes",
+        "oem_alternator_pn_ref",
+        "data_source_id",
+        "mvp_platform",
+        "electrical_source_refs",
+        "electrical_data_status",
+        "electrical_verification_notes"
+      ],
+      "key": "vcdb_vehicle_id"
+    },
+    "02_battery_specifications": {
+      "header_row": 2,
+      "headers": [
+        "battery_entry_id",
+        "vehicle_manufacturer",
+        "vehicle_model",
+        "model_year_range",
+        "trim_or_config",
+        "engine_or_powertrain",
+        "linked_vcdb_vehicle_ids (Sheet 1)",
+        "battery_application",
+        "designation",
+        "battery_type_chemistry",
+        "oem_battery_part_number",
+        "aftermarket_equivalent_part_numbers",
+        "battery_group_size",
+        "nominal_voltage_v",
+        "rated_capacity_ah",
+        "cold_cranking_amps_cca",
+        "cranking_amps_ca",
+        "reserve_capacity_min",
+        "energy_capacity_wh_kwh",
+        "standard_charge_amps",
+        "max_recommended_charge_amps",
+        "standard_discharge_amps",
+        "max_continuous_discharge_a",
+        "peak_discharge_amps",
+        "discharge_c_rate",
+        "discharge_coefficient",
+        "recommended_depth_of_discharge",
+        "max_depth_of_discharge",
+        "estimated_cycle_life",
+        "operating_temperature_range",
+        "battery_dimensions_lxwxh",
+        "battery_weight",
+        "terminal_type_and_orientation",
+        "hv_nominal_pack_voltage_v",
+        "hv_chemistry",
+        "hv_total_energy_kwh",
+        "hv_usable_energy_kwh",
+        "hv_cells_or_modules",
+        "hv_max_charge_current",
+        "hv_max_discharge_current",
+        "hv_cooling_method",
+        "hv_battery_management_system",
+        "hv_expected_cycle_life",
+        "hv_soc_operating_range",
+        "hv_max_depth_of_discharge",
+        "hv_replacement_assembly_pn",
+        "hv_safety_and_service_notes",
+        "warranty",
+        "compatibility_notes",
+        "source_links",
+        "verification_notes",
+        "verification_status",
+        "verification_date"
+      ],
+      "key": "battery_entry_id"
+    },
+    "01b_sources": {
+      "header_row": 4,
+      "headers": [
+        "id",
+        "source",
+        "type",
+        "tier",
+        "what it supports",
+        "URL",
+        "checked_at",
+        "scope / review status",
+        "data_source_id"
+      ],
+      "key": "id",
+      "data_blocks": [
+        [
+          5,
+          24
+        ],
+        [
+          36,
+          44
+        ],
+        [
+          176,
+          183
+        ]
+      ],
+      "metadata_source_sentinel_row": 45
+    },
+    "02_real_parts": {
+      "header_row": 1,
+      "headers": [
+        "source_row_key",
+        "brand_aaia_id",
+        "brand_name",
+        "part_number",
+        "part_number_normalized",
+        "pcdb_part_terminology_id",
+        "part_type_name",
+        "is_oem",
+        "oem_equivalent_number",
+        "condition",
+        "system_voltage",
+        "attributes_json",
+        "warranty_months",
+        "core_charge_usd",
+        "data_source_id",
+        "source_confidence",
+        "record_status",
+        "source_url",
+        "verification_notes",
+        "checked_at"
+      ],
+      "key": "source_row_key"
+    },
+    "03_real_fitments": {
+      "header_row": 1,
+      "headers": [
+        "fitment_key",
+        "brand_aaia_id",
+        "part_number",
+        "vcdb_vehicle_id",
+        "vcdb_base_vehicle_id",
+        "qualifier_json",
+        "position",
+        "quantity_required",
+        "confidence_tier",
+        "reason_codes",
+        "fit_note",
+        "evidence_url",
+        "data_source_id",
+        "verified_by",
+        "valid_from",
+        "valid_to",
+        "local_sample_vehicle_ref",
+        "record_status",
+        "basis_and_remaining_checks",
+        "checked_at"
+      ],
+      "key": "fitment_key"
+    }
+  },
+  "allowed_submodels": {
+    "Honda|Civic": [
+      "LX",
+      "EX-T",
+      "Si",
+      "Type R",
+      "LX / Sport",
+      "EX / Sport Touring",
+      "Sport / Sport Touring Hybrid"
+    ],
+    "Toyota|Camry": [
+      "LE"
+    ],
+    "Toyota|RAV4": [
+      "LE Hybrid"
+    ],
+    "Ford|F-150": [
+      "XLT"
+    ],
+    "Chevrolet|Silverado 1500": [
+      "LT"
+    ],
+    "Nissan|Altima": [
+      "S"
+    ]
+  }
+}

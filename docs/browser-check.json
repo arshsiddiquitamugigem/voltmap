@@ -1,0 +1,16 @@
+{
+  "browser": "Chromium",
+  "screens": 3,
+  "rav4_minimum_CCA": [
+    285,
+    286,
+    345
+  ],
+  "vehicle_and_type_filters": "passed",
+  "specification_search": "passed",
+  "civic_conflict": "preserved",
+  "hv_dialog": "blocked",
+  "mobile_width": 390,
+  "mobile_horizontal_overflow": false,
+  "javascript_page_errors": []
+}

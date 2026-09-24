@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VOLTMAP · Know what’s unresolved</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<aside class="rail">
+  <a class="brand" href="#/" aria-label="VOLTMAP home"><span class="brand-mark">V<span>↗</span></span> VOLTMAP<span class="brand-dot">.</span></a>
+  <div class="rail-label">ELECTRICAL RESEARCH</div>
+  <nav aria-label="Demo steps"><a id="nav-select" href="#/"><span>01</span> Select a vehicle</a><a id="nav-results" href="#/" aria-disabled="true"><span>02</span> Read the findings</a><a id="nav-evidence" href="#/" aria-disabled="true"><span>03</span> Follow the evidence</a></nav>
+  <div class="rail-note"><span class="tiny-light"></span> LOCAL & OFFLINE<br><p>Small dataset.<br>Visible uncertainty.<br>Every record traceable.</p></div>
+  <div class="rail-bottom">Built to show its limits.<br><span>Research demo · v0.1</span></div>
+</aside>
+<div class="workspace">
+  <header class="topbar"><span id="breadcrumb">Research / Vehicle selection</span><span class="dev-chip"><span></span> DEVELOPMENT DATA</span></header>
+  <div class="dev-note">Source mappings and canonical vehicle IDs are incomplete. <strong>No fitment is approved.</strong></div>
+  <main id="app" tabindex="-1"><p class="loading">Opening the local dataset…</p></main>
+  <footer><span>VOLTMAP · A record is a starting point, not a fitment confirmation.</span><span>External citations need an internet connection.</span></footer>
+</div>
+<dialog id="safety-dialog" aria-labelledby="safety-title"><div class="dialog-icon">!</div><p class="eyebrow">SAFETY BOUNDARY</p><h2 id="safety-title">High-voltage results are blocked.</h2><p id="safety-message"></p><div class="notice">No components or service instructions are returned. This boundary has no override.</div><button class="primary" id="close-dialog">Return to research</button></dialog>
+<script src="/static/app.js" defer></script>
+</body></html>
