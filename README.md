@@ -1,76 +1,102 @@
-# VOLTMAP — local research demo
+# VOLTMAP
 
-A small, usable demonstration of what recorded battery research establishes—and what it leaves unresolved. Four SQLite tables, a read-only FastAPI server, and three screens. No confidence tier is assigned and no fitment is approved.
+**A vehicle electrical compatibility system that shows its evidence — and says when it doesn't know.**
 
-## Run
+Most parts lookups answer every question with the same confidence, whether they're certain or guessing. VOLTMAP does the opposite: every stored specification traces back to a source document and page, unresolved ambiguity is shown rather than hidden, and high-voltage systems are blocked outright instead of answered carelessly.
 
-Use Python 3.12. Extract this entire folder, open a terminal in it, and run:
+![RAV4 findings screen](docs/02-rav4-findings.png)
 
-```sh
+---
+
+## The idea
+
+Vehicle electrical fitment has a problem that catalogs paper over: **the vehicle identity often doesn't determine the answer.**
+
+A 2019 Toyota RAV4 accepts three different auxiliary battery types. Toyota's own manual lists all three, and nothing short of reading the label on the installed battery tells you which one is in the car. Most systems pick one and present it as fact. VOLTMAP shows all three, cites the manual page, and says plainly that the installed type is unresolved.
+
+BCI Group **51** and **51R** batteries make the same point from the other direction: identical dimensions, identical cold-cranking amps, identical price — reversed terminals. Every attribute a shallow system models is the same, so shallow systems call them interchangeable. The factory cables physically cannot reach.
+
+**This project is an argument that a fitment system's value is in what it refuses to claim.**
+
+---
+
+## What's built
+
+A local web application — FastAPI, SQLite, vanilla HTML/CSS/JS — with three screens: vehicle selection, findings, and evidence.
+
+**Field-level provenance.** All **686 stored specification values** carry a source document, page, and originating cell. A specification without provenance cannot be serialized by the API — it's enforced in the response model, not by convention.
+
+**A fail-closed high-voltage gate.** Hybrid vehicles require both auxiliary and traction battery coverage. If coverage is incomplete or contradictory, results are **blocked** rather than partially shown. Deleting a traction record doesn't disable the gate — it trips it. There is no override parameter.
+
+**A validation pipeline enforcing 28 data-integrity rules** — leading-zero loss, scientific-notation coercion, date-coercion of part codes, homoglyph substitution, merged headers, trim drift. Running it against the source dataset surfaced specification contradictions that three rounds of manual review had missed.
+
+**Conflicts preserved, not resolved.** Where sources disagree — for example on the 11th-generation Civic battery group — both claims are recorded with their scope. Nothing is silently reconciled.
+
+![High-voltage boundary](docs/04-hv-boundary.png)
+
+---
+
+## Scope — stated plainly
+
+This is a **demonstration of method, not a parts catalog.**
+
+| | |
+|---|---|
+| Manufacturers | 2 (Honda, Toyota) |
+| Battery records | 13, each linked to a vehicle configuration |
+| Model-year scope | Narrowed to individually verified years |
+| Confidence tiers | Not assigned — the evaluator is designed, not built |
+| Fitment approval | None. Records are research, not certification |
+
+Coverage was traded for provenance deliberately. A wide dataset of unverified claims would defeat the point of the project.
+
+Two defects remain open and are labeled in the running app: legacy source identifiers on vehicle rows, and placeholder vehicle IDs pending canonical licensing. The development banner stays visible until both are resolved.
+
+---
+
+## Run it
+
+Requires Python 3.11+.
+
+```bash
 python3 -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
 python -m pip install -r requirements.txt
 python run.py
 ```
 
-On Windows, use `py -3.12 -m venv .venv` and `.venv\Scripts\activate` for the first two commands. The last two commands are the same.
+Opens at `http://127.0.0.1:8000`. Dependency install needs internet once; after that the app runs fully offline. The database ships preloaded.
 
-The browser opens at **http://127.0.0.1:8000**. If it does not, open that address yourself. Stop the server with Ctrl+C. To use another port: `python run.py --port 8001`.
+**Tests:**
 
-Dependency installation needs internet once. After setup, the app, database, styles and scripts work offline. Opening external citations requires internet. No account, API key or remote service is used. The server binds to this computer only.
-
-For subsequent launches, activate `.venv` and run `python run.py`.
-
-## Three-screen walkthrough
-
-1. **Select a vehicle.** Choose the featured RAV4 or filter the recorded configurations. Empty results stay empty; the app does not substitute a trim.
-2. **Read the findings.** The 2019 RAV4 shows Type A / B / C with minimum CCA requirements of 285 / 286 / 345, respectively. All remain visible by default. Selecting a label filters research; it does not establish physical fit. The Civic example preserves the H5 / 51R conflict.
-3. **Follow the evidence.** Read original specification text, unknown markers, workbook locations and recorded citations. Row-level citations are explicitly distinguished from field references. Dates and statuses retain their recorded scope.
-
-Use “Why are high-voltage results blocked?” to demonstrate suppression. The API also blocks direct traction-record requests. High-voltage records remain in SQLite for coverage checks; their specification fields are suppressed from consumer results.
-
-## Data and boundaries
-
-| Table | Rows | Meaning |
-|---|---:|---|
-| vehicles | 15 | Selected configurations, including four pending research configurations |
-| batteries | 13 | All linked workbook battery rows, unsplit |
-| sources | 37 | Existing source register |
-| fitment_links | 15 | Research associations; not approved fitments |
-
-Three pending battery templates are excluded separately. The synthetic parts/fitments sheets do not supply demo records. Battery specifications live only in `batteries`; vehicle summary battery measurements are not duplicated.
-
-All original battery cell text—including notes and conflicting claims—is recoverable from `field_provenance` plus `record_metadata`. The source workbook is unchanged. The UI suppresses high-voltage fields and uses configuration terminology; it does not present every raw workbook note.
-
-Every serialized specification requires provenance with a workbook hash and cell location. This is traceability, **not proof that every field is verified**. Existing field references and row-only citations are identified separately; missing basis tags and unknown review dates remain missing. URLs are recorded links, not freshly checked links.
-
-The development banner remains visible because two independent defects remain open: real vehicle rows still carry legacy source ID `999`, and their legacy vehicle identifiers are placeholders rather than licensed canonical IDs. Canonical IDs and confidence tiers are NULL. Fixing one defect will not resolve the other.
-
-The HV gate reads current vehicle classification and current battery links. Incomplete or contradictory known-HV coverage blocks battery results. Unknown classification cannot enable high-voltage or service advice. This demo provides no service recommendations for any configuration.
-
-## Scope deliberately retained
-
-- Four tables, native foreign keys, and closed field-name guards on `vehicle_facts` and battery `field_provenance`.
-- All 13 linked battery records as original text; no claim-subject splits or approval queue.
-- Read-only API, required response provenance, and a fail-closed HV gate.
-- No JSON source-reference triggers, full enforcement matrix, tier evaluator, general write API, or LLM layer.
-
-This is a pinned demonstration dataset, not a general-purpose production importer. It rejects a changed workbook hash and refuses to overwrite an existing database. Direct third-party database edits are outside the supported workflow; deferred enforcement is not silently claimed to exist.
-
-## Check or rebuild
-
-```sh
+```bash
 python -m pip install -r requirements-dev.txt
 python -m pytest -q
-python -m voltmap.store --output data/rebuilt.sqlite
 ```
 
-The included `data/voltmap_dev.sqlite` is already loaded. The last command creates a separate database and import report without replacing it. Seventeen focused tests cover preservation, database constraints, response provenance, RAV4 ambiguity, Civic conflicts, and HV suppression. See `docs/BUILD_REPORT.md` for the tested scope.
+17 tests covering exact row preservation, database constraints, response provenance, RAV4 ambiguity retention, Civic conflict retention, and high-voltage suppression — including verification that removing a required traction link blocks results rather than clearing the gate.
 
-`voltmap/fields.json` is the active closed field policy. `data/voltmap_dev.import.json` contains the full importer findings. The reused loader and workbook layout are included.
+---
 
-## Future design, not current implementation
+## How it was built
 
-`docs/TIER_PROVENANCE_ROADMAP.md` preserves the approved rule-artifact/input hashing design. `docs/FULL_PROVENANCE_ROADMAP.md` preserves the earlier complete design with a scope override. Phases 4b and 4c are not being built. `quantity_required`, if introduced later, is an OEM fact requiring evidence, not structural metadata.
+The dataset was compiled using LLM-assisted extraction from manufacturer service literature and emergency-response guides, with every value cross-checked across multiple sources. Values that could not be confirmed are marked `Not publicly verified` rather than estimated — including alternator amperage and main fuse ratings, which manufacturers publish part numbers for but not specifications.
 
-Estimate recorded before this build: **4–6 focused hours for reduced 4a, plus 6–9 for the app; 10–15 total**. This is a solo-developer planning estimate, not a measurement of assistant execution time. New research, canonical licensing and productionization are outside it.
+The validation and storage layers were then built to make unsourced data structurally unrepresentable.
+
+---
+
+## Project layout
+
+```
+voltmap/     FastAPI app, closed field policy, static frontend
+data/        Preloaded SQLite database and import report
+tests/       Test suite
+docs/        Build report, screenshots, design roadmaps
+```
+
+`docs/BUILD_REPORT.md` documents the tested scope and a complete list of current limitations.
+
+---
+
+Built by [Arsh Siddiqui](https://linkedin.com/in/asiddiqui2005) — Electrical Engineering, Texas A&M University.
