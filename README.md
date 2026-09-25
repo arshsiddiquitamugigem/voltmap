@@ -32,6 +32,8 @@ A local web application — FastAPI, SQLite, vanilla HTML/CSS/JS — with three 
 
 **Conflicts preserved, not resolved.** Where sources disagree — for example on the 11th-generation Civic battery group — both claims are recorded with their scope. Nothing is silently reconciled.
 
+![Evidence screen](docs/03-evidence.png)
+
 ![High-voltage boundary](docs/04-hv-boundary.png)
 
 ---
